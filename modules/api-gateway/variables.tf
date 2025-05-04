@@ -22,4 +22,9 @@ variable "lambda_uri_map" {
 variable "lambda_function_arns" {
   type        = map(string)
   description = "Map of Lambda function names to their ARNs"
+}
+
+variable "website_endpoint" {
+  type        = string
+  description = "S3 website endpoint for CORS configuration"
 } 

@@ -6,6 +6,7 @@
 *.tfvars
 terraform.tfvars
 terraform.tfstate.backup
+react-app-frontend
 
 # Lambda deployment packages
 *.zip

@@ -23,7 +23,7 @@ locals {
   }
 
   cors_headers = {
-    "Access-Control-Allow-Origin"  = "'*'"
+    "Access-Control-Allow-Origin"  = "'http://${var.website_endpoint},https://${var.website_endpoint}'"
     "Access-Control-Allow-Methods" = "'GET,POST,PUT,DELETE,OPTIONS'"
     "Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
   }
