@@ -13,14 +13,29 @@ exports.handler = (event, context, callback) => {
    dynamodb.scan(params, (err, data) => {
       if (err) {
          console.log(err);
-         callback(err);
+         callback(null, {
+            statusCode: 500,
+            headers: {
+               "Content-Type": "application/json",
+               "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify({ error: err.message })
+         });
       } else {
          const authors = data.Items.map((item) => ({
             id: item.id.S,
             firstName: item.firstName.S,
             lastName: item.lastName.S,
          }));
-         callback(null, authors);
+         
+         callback(null, {
+            statusCode: 200,
+            headers: {
+               "Content-Type": "application/json",
+               "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(authors)
+         });
       }
    });
 };
