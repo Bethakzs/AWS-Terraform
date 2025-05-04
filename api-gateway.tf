@@ -1,9 +1,10 @@
 data "aws_region" "current" {}
 
 module "api_gateway" {
-  source     = "./modules/api-gateway"
-  api_name   = "courses-api"
-  stage_name = "dev"
+  source           = "./modules/api-gateway"
+  api_name         = "courses-api"
+  stage_name       = "dev"
+  website_endpoint = module.frontend_s3.website_endpoint
   
   endpoints = [
     "get-all-authors",
