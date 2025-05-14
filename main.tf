@@ -31,3 +31,7 @@ module "courses" {
   billing_mode = "PAY_PER_REQUEST"
   attributes   = [{ name = "id", type = "S" }]
 }
+
+module "monitoring" {
+  source = "./modules/monitoring"
+}
